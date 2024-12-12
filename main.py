@@ -27,11 +27,11 @@ from contextlib import asynccontextmanager
 app = FastAPI()
 
 # ข้อมูล token และ channel secret สำหรับ LINE
-ACCESS_TOKEN = os.getenv("LINE_ACCESS_TOKEN", "O0Vi8xE7Wh3A6BahSUC6O0VKR7RxR0p27jHBl1h39OdH9/d3cEtmrS4QT91BUEDmmrRqLrUiKLVxlJcggXWQ/MwNBJttPBjKEw8Oifg9O06on+Ab3UzbvQ7E8W56z5GeOIHvROzUsRVagavLPiTIbwdB04t89/1O/w1cDnyilFU=")
-CHANNEL_SECRET = os.getenv("LINE_CHANNEL_SECRET", "701c99f9fa1b4d0261e6f4dedcce76c8")
+ACCESS_TOKEN = os.getenv("LINE_ACCESS_TOKEN", "lMiJ2MLiQfnUbZOMWtldSeO2xRCS0x1wE5jpfrsyGaat2xR7zKGafPNWsYzYFGIuifvD+kxmLBjxZY5OlNomaJT2GTBiBVZQ+SyD0WqKmf4068y7BSnW4OxLIVzSouBEtU0EO0K918rUtGwbcLnncAdB04t89/1O/w1cDnyilFU=")
+CHANNEL_SECRET = os.getenv("LINE_CHANNEL_SECRET", "7e14b8b560949e3639605662d76a7fef4")
 
 # ข้อมูล Gemini api key
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyBrn9N8g0RnZrYhW-vFe3Tb2ytibKcsU3E")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyDsNtAY6NYaBTQUYRn5r6OO03q046YPA0k")
 
 # การเชื่อมต่อ และตั้งค่าข้อมูลเพื่อเรียกใช้งาน LINE Messaging API
 configuration = Configuration(access_token=ACCESS_TOKEN)
@@ -240,10 +240,10 @@ gemini = GeminiRAGSystem(
 async def lifespan(app: FastAPI):
     # ข้อมูลตัวอย่างที่ใช้สำหรับ Gemini
     sample_documents = [
-        "จิรภัทร ทำดี คือ ชายหนุ่มที่มีความสามารถในการเขียนโปรแกรมที่มาจากบริษัท ClickNext ที่เป็นบริษัทด้านการพัฒนาโปรแกรมที่มีชื่อเสียง",
-        "จิรภัทร ทำดี มีชื่อเล่นว่า ปาล์ม เกิดวันที่ 25 มกราคม 2555 ที่จังหวัดสระบุรี ศึกษาจบจากมหาวิทยาลัยบูรพา สาขาวิศวกรรมคอมพิวเตอร์",
+        "วสุภัคจ์ณัฏฐ์ วัฒนกุล คือ หญิงสาวที่น่ารักในสาขา AAI",
+        "วสุภัคจ์ณัฏฐ์ วัฒนกุล มีชื่อเล่นว่า วาวา เกิดวันที่ 18 กันยายน 2546 ที่จังหวัดกรุงเทพ ศึกษาจบจากมหาวิทยาลัยบูรพา สาขาปัญญาประดิษฐ์ประยุกต์และเทคโนโลยีอัจฉริยะ",
         "งาน BUU-Bootcamp-2024 จัดที่มหาวิทยาลัยบูรพา ในวันที่ 25 มกราคม ปีค.ศ.2024 โดยมีการจัดกิจกรรมต่าง ๆ ที่เกี่ยวข้องกับการพัฒนาซอฟต์แวร์ เวลา 9:00 น. - 16:00 น.",
-        "มหาวิทยาลัยบูรพา สาขาวิชาAI ปีการศึกษา 2565 มีนักศึกษาจำนวน 100 คน มีอาจารย์ที่ปรึกษา 10 คน"
+        "ClickNext AI มีทั้งหมด 5 คน พี่ออย ตำแหน่ง BA พี่ดาว ตำแหน่ง BA พี่เจ๋ง ตำแหน่ง Backend DEV พี่ปาล์ม ตำแหน่ง Frontend DEV พี่ชวน ตำแหน่ง Data Operation "
     ]
     
     # เพิ่มข้อมูลตัวอย่างลงใน Gemini
